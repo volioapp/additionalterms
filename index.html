@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Aviation Data and Volio-Specific Terms — Volio App</title>
+<title>Aviation Data and Volio-Specific Terms / Dati Aeronautici e Termini Specifici di Volio — Volio App</title>
 <style>
   :root {
     --brand-dark: #1A1A2E;
@@ -19,11 +19,15 @@
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 15px; color: var(--text-primary); line-height: 1.7; background: #F8FAFC; }
   .cover { background: var(--brand-dark); color: white; padding: 56px 40px 48px; text-align: center; }
   .cover .brand { font-size: 11px; letter-spacing: 4px; color: #93C5FD; margin-bottom: 16px; text-transform: uppercase; }
-  .cover h1 { font-size: 32px; font-weight: 700; margin-bottom: 10px; }
+  .cover h1 { font-size: 28px; font-weight: 700; margin-bottom: 10px; }
   .cover .subtitle { color: #BFDBFE; font-size: 15px; margin-bottom: 8px; }
   .cover .meta { color: #93C5FD; font-size: 13px; }
   .container { max-width: 820px; margin: 0 auto; padding: 40px 24px 80px; }
   .intro-box { background: var(--brand-light); border: 1px solid var(--border-color); border-radius: 8px; padding: 14px 18px; margin: 32px 0 8px; font-size: 13.5px; color: #1E40AF; line-height: 1.6; }
+  .lang-note { text-align: center; font-size: 12.5px; color: #6B7280; margin: 10px 0 24px; line-height: 1.6; }
+  .lang-toggle { display: flex; justify-content: center; gap: 8px; margin: 0 0 8px; }
+  .lang-btn { border: 1px solid var(--border-color); background: white; color: var(--brand-accent); font-size: 13px; font-weight: 600; padding: 6px 16px; border-radius: 999px; cursor: pointer; }
+  .lang-btn.active { background: var(--brand-accent); color: white; border-color: var(--brand-accent); }
   .section { margin-top: 36px; }
   .section-title { font-size: 18px; font-weight: 700; color: var(--brand-accent); margin-bottom: 10px; padding-bottom: 6px; border-bottom: 2px solid var(--border-color); }
   p { margin-bottom: 10px; font-size: 14.5px; }
@@ -34,35 +38,56 @@
   .contact-box { background: var(--brand-light); border: 1px solid var(--border-color); border-radius: 8px; padding: 18px; text-align: center; margin-top: 12px; font-size: 14.5px; }
   hr { border: none; border-top: 1px solid var(--border-color); margin: 24px 0 4px; }
   a { color: var(--brand-accent); }
-  @media (max-width: 600px) { .cover { padding: 36px 20px 32px; } .cover h1 { font-size: 24px; } }
+  .lang-it { display: none; }
+  body.lang-it .lang-en { display: none; }
+  body.lang-it .lang-it { display: block; }
+  @media (max-width: 600px) { .cover { padding: 36px 20px 32px; } .cover h1 { font-size: 21px; } }
 </style>
 </head>
 <body>
 <div class="cover">
   <div class="brand">Volio App</div>
-  <h1>Aviation Data and Volio-Specific Terms</h1>
-  <div class="subtitle">Supplementary Terms — Volio App S.r.l.</div>
-  <div class="meta">Last updated: June 29, 2026</div>
+  <h1>Aviation Data and Volio-Specific Terms<br>Dati Aeronautici e Termini Specifici di Volio</h1>
+  <div class="subtitle">Supplementary Terms / Termini Supplementari — Volio App S.r.l.</div>
+  <div class="meta">Last updated / Ultimo aggiornamento: 29 June 2026 / 29 giugno 2026</div>
 </div>
 <div class="container">
-  <div class="intro-box">This document is incorporated by reference into, and forms a binding part of, the <a href="https://www.iubenda.com/terms-and-conditions/15315799" target="_blank" rel="noopener">Volio App Terms &amp; Conditions</a>. In the event of any conflict between this document and the main Terms &amp; Conditions, the provisions most specific to the subject matter described herein shall prevail with respect to that subject matter.</div>
+  <div class="lang-toggle">
+    <button id="btn-en" class="lang-btn active" onclick="setLang('en')">English</button>
+    <button id="btn-it" class="lang-btn" onclick="setLang('it')">Italiano</button>
+  </div>
+  <div class="lang-note">This page is available in English and Italian. In case of any discrepancy between the two versions, the English version shall prevail.<br>Questa pagina è disponibile in inglese e in italiano. In caso di discrepanza tra le due versioni, prevale la versione in inglese.</div>
 
-  <div class="section">
+  <div class="intro-box lang-en">This document is incorporated by reference into, and forms a binding part of, the <a href="https://www.iubenda.com/terms-and-conditions/15315799" target="_blank" rel="noopener">Volio App Terms &amp; Conditions</a>. In the event of any conflict between this document and the main Terms &amp; Conditions, the provisions most specific to the subject matter described herein shall prevail with respect to that subject matter.</div>
+  <div class="intro-box lang-it">Il presente documento è incorporato per riferimento e costituisce parte vincolante dei <a href="https://www.iubenda.com/terms-and-conditions/15315799" target="_blank" rel="noopener">Termini e Condizioni di Volio App</a>. In caso di conflitto tra il presente documento e i Termini e Condizioni principali, prevarranno le disposizioni più specifiche rispetto alla materia qui trattata.</div>
+
+  <div class="section lang-en">
     <div class="section-title">1. FlightAware and Third-Party Aviation Data</div>
     <p>Flight information displayed within the Application may be obtained from third-party aviation data providers, including FlightAware and other data providers.</p>
     <p>Such information is made available solely for informational and social networking purposes. Volio does not own such flight data and cannot guarantee its availability, completeness, accuracy, timeliness or uninterrupted provision.</p>
     <p>The availability of such information may change at any time depending on the services provided by third parties.</p>
   </div>
+  <div class="section lang-it">
+    <div class="section-title">1. FlightAware e dati aeronautici di terzi</div>
+    <p>Le informazioni di volo visualizzate all'interno dell'Applicazione possono essere ottenute da fornitori terzi di dati aeronautici, tra cui FlightAware e altri fornitori di dati.</p>
+    <p>Tali informazioni sono rese disponibili esclusivamente per finalità informative e di social networking. Volio non è proprietaria di tali dati di volo e non può garantirne la disponibilità, la completezza, l'accuratezza, la puntualità o la fornitura ininterrotta.</p>
+    <p>La disponibilità di tali informazioni può variare in qualsiasi momento in base ai servizi forniti da terzi.</p>
+  </div>
   <hr>
 
-  <div class="section">
+  <div class="section lang-en">
     <div class="section-title">2. ADS-B / MLAT Data Disclaimer</div>
     <p>Flight information available through the Application is generated from surveillance technologies such as ADS-B (Automatic Dependent Surveillance-Broadcast), MLAT (Multilateration) and other aviation data sources provided by third parties.</p>
     <p>Such information may be delayed, incomplete, unavailable or inaccurate and must not be relied upon as an authoritative source of flight information.</p>
   </div>
+  <div class="section lang-it">
+    <div class="section-title">2. Avvertenza sui dati ADS-B / MLAT</div>
+    <p>Le informazioni di volo disponibili tramite l'Applicazione sono generate da tecnologie di sorveglianza quali ADS-B (Automatic Dependent Surveillance-Broadcast), MLAT (Multilaterazione) e altre fonti di dati aeronautici fornite da terzi.</p>
+    <p>Tali informazioni possono essere ritardate, incomplete, non disponibili o inesatte e non devono essere considerate come fonte autorevole di informazioni di volo.</p>
+  </div>
   <hr>
 
-  <div class="section">
+  <div class="section lang-en">
     <div class="section-title">3. Non-Operational Use</div>
     <p>The Application is intended exclusively for social networking, educational and informational purposes.</p>
     <p>The Application is not designed, certified or intended to support operational aviation activities and must not be used for:</p>
@@ -77,23 +102,48 @@
     </ul>
     <p>Users remain solely responsible for making operational decisions using certified aviation information and official sources.</p>
   </div>
+  <div class="section lang-it">
+    <div class="section-title">3. Uso non operativo</div>
+    <p>L'Applicazione è destinata esclusivamente a finalità di social networking, educative e informative.</p>
+    <p>L'Applicazione non è progettata, certificata o destinata a supportare attività aeronautiche operative e non deve essere utilizzata per:</p>
+    <ul>
+      <li>la pianificazione di volo;</li>
+      <li>la navigazione;</li>
+      <li>l'operazione di aeromobili;</li>
+      <li>la separazione del traffico aereo;</li>
+      <li>decisioni operative;</li>
+      <li>attività aeronautiche critiche per la sicurezza;</li>
+      <li>la conformità alle normative aeronautiche.</li>
+    </ul>
+    <p>Gli Utenti restano gli unici responsabili delle decisioni operative assunte utilizzando informazioni aeronautiche certificate e fonti ufficiali.</p>
+  </div>
   <hr>
 
-  <div class="section">
+  <div class="section lang-en">
     <div class="section-title">4. Pilot Responsibility</div>
     <p>Nothing available through the Application replaces the responsibility of the pilot in command or any applicable aviation authority.</p>
     <p>Pilots and flight crew remain solely responsible for the safe operation of the aircraft and for complying with all applicable aviation laws, regulations and operational procedures.</p>
   </div>
+  <div class="section lang-it">
+    <div class="section-title">4. Responsabilità del pilota</div>
+    <p>Nulla di quanto disponibile tramite l'Applicazione sostituisce la responsabilità del pilota al comando o di qualsiasi autorità aeronautica competente.</p>
+    <p>I piloti e gli equipaggi di volo restano gli unici responsabili della sicurezza operativa dell'aeromobile e del rispetto di tutte le leggi, normative e procedure operative aeronautiche applicabili.</p>
+  </div>
   <hr>
 
-  <div class="section">
+  <div class="section lang-en">
     <div class="section-title">5. Flight Activities Published by Users</div>
     <p>Users are solely responsible for any flight activity, aircraft registration, departure airport, destination airport, timestamps, comments or any other aviation-related information they publish through the Application.</p>
     <p>Users must ensure that the publication of such information does not violate applicable laws, contractual obligations or third-party rights.</p>
   </div>
+  <div class="section lang-it">
+    <div class="section-title">5. Attività di volo pubblicate dagli Utenti</div>
+    <p>Gli Utenti sono gli unici responsabili di qualsiasi attività di volo, immatricolazione di aeromobile, aeroporto di partenza, aeroporto di destinazione, orari, commenti o altre informazioni di natura aeronautica che pubblicano tramite l'Applicazione.</p>
+    <p>Gli Utenti devono assicurarsi che la pubblicazione di tali informazioni non violi leggi applicabili, obblighi contrattuali o diritti di terzi.</p>
+  </div>
   <hr>
 
-  <div class="section">
+  <div class="section lang-en">
     <div class="section-title">6. Aircraft Registration (Tail Number) Lookup</div>
     <p>The Application may allow Users to search for any aircraft using its registration (tail number), including aircraft not associated with any User of the Application.</p>
     <p>Information associated with an aircraft registration is retrieved from third-party aviation data providers and is displayed solely to enable the social features of the Application. Such information may relate to identifiable individuals who are not Users of the Application and who have not entered into any agreement with Volio. This information originates from publicly available aviation data sources and is not collected by Volio directly from the individuals concerned.</p>
@@ -101,9 +151,17 @@
     <div class="warn-box"><strong>Important:</strong> Users must not use this feature to violate the privacy or publicity rights of any individual, including for the purposes of monitoring, profiling or tracking the movements of a specific person without their consent.</div>
     <p>Volio does not verify the accuracy, completeness or ownership of such information and accepts no responsibility for it.</p>
   </div>
+  <div class="section lang-it">
+    <div class="section-title">6. Ricerca per immatricolazione (tail number)</div>
+    <p>L'Applicazione può consentire agli Utenti di cercare un aeromobile tramite la sua immatricolazione (tail number), inclusi aeromobili non associati a nessun Utente dell'Applicazione.</p>
+    <p>Le informazioni associate a un'immatricolazione di aeromobile sono recuperate da fornitori terzi di dati aeronautici e sono visualizzate esclusivamente per consentire le funzionalità social dell'Applicazione. Tali informazioni possono riguardare persone identificabili che non sono Utenti dell'Applicazione e che non hanno stipulato alcun accordo con Volio. Tali informazioni provengono da fonti di dati aeronautici pubblicamente disponibili e non sono raccolte da Volio direttamente dalle persone interessate.</p>
+    <p>Alcuni proprietari di aeromobili limitano volontariamente la visualizzazione pubblica del proprio aeromobile tramite programmi di terze parti (come il programma Limiting Aircraft Data Displayed della FAA o liste equivalenti adottate dal settore). Per tali aeromobili, i risultati di ricerca potrebbero essere limitati o non disponibili.</p>
+    <div class="warn-box"><strong>Importante:</strong> gli Utenti non devono utilizzare questa funzionalità per violare la privacy o i diritti di immagine di alcuna persona, anche a fini di monitoraggio, profilazione o tracciamento degli spostamenti di una persona specifica senza il suo consenso.</div>
+    <p>Volio non verifica l'accuratezza, la completezza o la titolarità di tali informazioni e non si assume alcuna responsabilità al riguardo.</p>
+  </div>
   <hr>
 
-  <div class="section">
+  <div class="section lang-en">
     <div class="section-title">7. Publication of Activities</div>
     <p>Users may choose the visibility of each activity published through the Application.</p>
     <p>Depending on the User's selection, activities may be:</p>
@@ -114,31 +172,58 @@
     </ul>
     <p>Private activities are not visible to other Users.</p>
   </div>
+  <div class="section lang-it">
+    <div class="section-title">7. Pubblicazione delle attività</div>
+    <p>Gli Utenti possono scegliere la visibilità di ciascuna attività pubblicata tramite l'Applicazione.</p>
+    <p>In base alla selezione dell'Utente, le attività possono essere:</p>
+    <ul>
+      <li>Pubbliche;</li>
+      <li>Visibili solo ai follower approvati;</li>
+      <li>Private.</li>
+    </ul>
+    <p>Le attività private non sono visibili agli altri Utenti.</p>
+  </div>
   <hr>
 
-  <div class="section">
+  <div class="section lang-en">
     <div class="section-title">8. User Profile Visibility</div>
     <p>Users may configure their profile as Public or Private.</p>
     <p>Private profiles are not displayed in search results and cannot be accessed by Users who have not been authorised by the profile owner.</p>
   </div>
+  <div class="section lang-it">
+    <div class="section-title">8. Visibilità del profilo utente</div>
+    <p>Gli Utenti possono configurare il proprio profilo come Pubblico o Privato.</p>
+    <p>I profili privati non vengono mostrati nei risultati di ricerca e non sono accessibili agli Utenti che non sono stati autorizzati dal titolare del profilo.</p>
+  </div>
   <hr>
 
-  <div class="section">
+  <div class="section lang-en">
     <div class="section-title">9. Aviation Information</div>
     <p>Airport information, aircraft information, routes, flight numbers, registrations and similar aviation-related information are provided exclusively for informational purposes.</p>
     <p>Volio does not guarantee the accuracy or completeness of such information and accepts no responsibility for decisions taken on the basis of it.</p>
   </div>
+  <div class="section lang-it">
+    <div class="section-title">9. Informazioni aeronautiche</div>
+    <p>Le informazioni su aeroporti, aeromobili, rotte, numeri di volo, immatricolazioni e altre informazioni aeronautiche simili sono fornite esclusivamente a scopo informativo.</p>
+    <p>Volio non garantisce l'accuratezza o la completezza di tali informazioni e non si assume alcuna responsabilità per le decisioni prese sulla base di esse.</p>
+  </div>
   <hr>
 
-  <div class="section">
+  <div class="section lang-en">
     <div class="section-title">10. Third-Party Services</div>
     <p>Certain features of the Application depend on services operated by independent third parties.</p>
     <p>Volio shall not be responsible for interruptions, inaccuracies, delays or service unavailability resulting from third-party providers.</p>
     <p>The suspension or termination of third-party services may affect certain features of the Application without giving rise to any right to compensation.</p>
   </div>
+  <div class="section lang-it">
+    <div class="section-title">10. Servizi di terze parti</div>
+    <p>Alcune funzionalità dell'Applicazione dipendono da servizi gestiti da terzi indipendenti.</p>
+    <p>Volio non sarà responsabile per interruzioni, inesattezze, ritardi o indisponibilità dei servizi derivanti da fornitori terzi.</p>
+    <p>La sospensione o la cessazione di servizi di terzi può incidere su alcune funzionalità dell'Applicazione senza dare diritto ad alcun risarcimento.</p>
+  </div>
   <hr>
 
-  <div class="section">
+  <div class="section lang-en">
     <div class="section-title">11. Restrictions on Use of Aviation Data</div>
     <p>Users must not use any aviation data made available through the Application:</p>
     <ul>
@@ -148,11 +233,31 @@
     </ul>
     <p>Volio may suspend or terminate the account of any User found to be in breach of this clause, in order to comply with its own obligations towards its third-party aviation data providers.</p>
   </div>
+  <div class="section lang-it">
+    <div class="section-title">11. Limitazioni all'uso dei dati aeronautici</div>
+    <p>Gli Utenti non devono utilizzare i dati aeronautici resi disponibili tramite l'Applicazione:</p>
+    <ul>
+      <li>per finalità di sorveglianza massiva, profilazione, o per qualsiasi finalità che violi o incoraggi la violazione della privacy o dei diritti fondamentali di una persona;</li>
+      <li>per azionare bot, scraper, crawler o altri strumenti automatizzati al fine di estrarre, copiare o compilare dati aeronautici dall'Applicazione in modo massivo;</li>
+      <li>per rivendere, concedere in sublicenza o ridistribuire a terzi i dati aeronautici ottenuti tramite l'Applicazione.</li>
+    </ul>
+    <p>Volio può sospendere o terminare l'account di qualsiasi Utente che risulti in violazione della presente clausola, al fine di adempiere ai propri obblighi nei confronti dei fornitori terzi di dati aeronautici.</p>
+  </div>
   <hr>
 
-  <div class="contact-box">
+  <div class="contact-box lang-en">
     For any question about this document, contact <strong>Volio App S.r.l.</strong> at <a href="mailto:admin@volioapp.it">admin@volioapp.it</a>.
   </div>
+  <div class="contact-box lang-it">
+    Per qualsiasi domanda relativa al presente documento, contatta <strong>Volio App S.r.l.</strong> all'indirizzo <a href="mailto:admin@volioapp.it">admin@volioapp.it</a>.
+  </div>
 </div>
+<script>
+  function setLang(lang) {
+    document.body.classList.toggle('lang-it', lang === 'it');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-it').classList.toggle('active', lang === 'it');
+  }
+</script>
 </body>
 </html>
