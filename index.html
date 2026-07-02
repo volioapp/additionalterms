@@ -17,6 +17,10 @@
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; font-size: 15px; color: var(--text-primary); line-height: 1.7; background: #F8FAFC; }
+
+  /* Hidden radio inputs power the CSS-only toggle — no JavaScript needed */
+  #r-en, #r-it { display: none; }
+
   .cover { background: var(--brand-dark); color: white; padding: 56px 40px 48px; text-align: center; }
   .cover .brand { font-size: 11px; letter-spacing: 4px; color: #93C5FD; margin-bottom: 16px; text-transform: uppercase; }
   .cover h1 { font-size: 28px; font-weight: 700; margin-bottom: 10px; }
@@ -26,8 +30,14 @@
   .intro-box { background: var(--brand-light); border: 1px solid var(--border-color); border-radius: 8px; padding: 14px 18px; margin: 32px 0 8px; font-size: 13.5px; color: #1E40AF; line-height: 1.6; }
   .lang-note { text-align: center; font-size: 12.5px; color: #6B7280; margin: 10px 0 24px; line-height: 1.6; }
   .lang-toggle { display: flex; justify-content: center; gap: 8px; margin: 0 0 8px; }
-  .lang-btn { border: 1px solid var(--border-color); background: white; color: var(--brand-accent); font-size: 13px; font-weight: 600; padding: 6px 16px; border-radius: 999px; cursor: pointer; }
-  .lang-btn.active { background: var(--brand-accent); color: white; border-color: var(--brand-accent); }
+  .lang-btn { border: 1px solid var(--border-color); background: white; color: var(--brand-accent); font-size: 13px; font-weight: 600; padding: 6px 16px; border-radius: 999px; cursor: pointer; display: inline-block; user-select: none; }
+
+  /* Default active state: EN button */
+  label.lang-btn[for="r-en"] { background: var(--brand-accent); color: white; border-color: var(--brand-accent); }
+  /* When IT is selected: swap active state */
+  #r-it:checked ~ .container label.lang-btn[for="r-en"] { background: white; color: var(--brand-accent); border-color: var(--border-color); }
+  #r-it:checked ~ .container label.lang-btn[for="r-it"] { background: var(--brand-accent); color: white; border-color: var(--brand-accent); }
+
   .section { margin-top: 36px; }
   .section-title { font-size: 18px; font-weight: 700; color: var(--brand-accent); margin-bottom: 10px; padding-bottom: 6px; border-bottom: 2px solid var(--border-color); }
   p { margin-bottom: 10px; font-size: 14.5px; }
@@ -38,23 +48,33 @@
   .contact-box { background: var(--brand-light); border: 1px solid var(--border-color); border-radius: 8px; padding: 18px; text-align: center; margin-top: 12px; font-size: 14.5px; }
   hr { border: none; border-top: 1px solid var(--border-color); margin: 24px 0 4px; }
   a { color: var(--brand-accent); }
+
+  /* Language visibility — default: show EN, hide IT */
   .lang-it { display: none; }
-  body.lang-it .lang-en { display: none; }
-  body.lang-it .lang-it { display: block; }
+  /* When IT radio is checked: hide EN, show IT */
+  #r-it:checked ~ .container .lang-en { display: none; }
+  #r-it:checked ~ .container .lang-it { display: block; }
+
   @media (max-width: 600px) { .cover { padding: 36px 20px 32px; } .cover h1 { font-size: 21px; } }
 </style>
 </head>
 <body>
+
+<!-- Radio inputs must be first children of <body> so CSS sibling selectors can reach .container -->
+<input type="radio" id="r-en" name="lang" checked>
+<input type="radio" id="r-it" name="lang">
+
 <div class="cover">
   <div class="brand">Volio App</div>
   <h1>Aviation Data and Volio-Specific Terms<br>Dati Aeronautici e Termini Specifici di Volio</h1>
   <div class="subtitle">Supplementary Terms / Termini Supplementari — Volio App S.r.l.</div>
   <div class="meta">Last updated / Ultimo aggiornamento: 29 June 2026 / 29 giugno 2026</div>
 </div>
+
 <div class="container">
   <div class="lang-toggle">
-    <button id="btn-en" class="lang-btn active" onclick="setLang('en')">English</button>
-    <button id="btn-it" class="lang-btn" onclick="setLang('it')">Italiano</button>
+    <label for="r-en" class="lang-btn">English</label>
+    <label for="r-it" class="lang-btn">Italiano</label>
   </div>
   <div class="lang-note">This page is available in English and Italian. In case of any discrepancy between the two versions, the English version shall prevail.<br>Questa pagina è disponibile in inglese e in italiano. In caso di discrepanza tra le due versioni, prevale la versione in inglese.</div>
 
@@ -252,12 +272,6 @@
     Per qualsiasi domanda relativa al presente documento, contatta <strong>Volio App S.r.l.</strong> all'indirizzo <a href="mailto:admin@volioapp.it">admin@volioapp.it</a>.
   </div>
 </div>
-<script>
-  function setLang(lang) {
-    document.body.classList.toggle('lang-it', lang === 'it');
-    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-    document.getElementById('btn-it').classList.toggle('active', lang === 'it');
-  }
-</script>
+
 </body>
 </html>
